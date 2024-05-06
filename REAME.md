@@ -17,3 +17,22 @@ port client dan server berbeda
 ![alt text](img/2.2.2.png)
 
 Jika port client dan server sama, maka program akan tetap berjalan dengan baik karena client dapat melakukan koneksi dengan server, namun jika port client dan server berbeda, maka akan terjadi error karena client tidak bisa melakukan connect ke port server dikarenakan port yang berbeda sehingga aplikasi akan error.
+
+### 2.3 Small changes. Add some information to client
+
+kode yang diubah di client.rs
+
+![alt text](img/2.3.2.png)
+
+kode yang diubah di server.rs
+
+![alt text](img/2.3.1.png)
+
+output
+
+![alt text](img/2.3.3.png)
+
+Pada kode di server.rs saya mengubah dari `bcast_tx.send(text.into())?;` menjadi `bcast_tx.send(format!("{addr}: {text}"))?;` hal ini agar saya juga mengirimkan data addr (alamat pengiriman) dan bukan data text saja ke client.
+
+Pada kode di client.rs saya menambahkan `Athar's Computer` di println! untuk memberikan tambahan informasi.
+
